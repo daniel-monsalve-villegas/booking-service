@@ -67,3 +67,8 @@ La reserva deberá asociar un contacto de emergencia, el cual debe contener:
 
 - [ ] Nombres completos
 - [ ] Teléfono de contacto
+
+#### Plus
+
+- [ ] Desarrollo de servicios web
+- [ ] Utilice estrategias de CI/CD

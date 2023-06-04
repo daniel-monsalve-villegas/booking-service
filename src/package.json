@@ -1,0 +1,19 @@
+{
+  "name": "smarttalent(22028)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": "git@github.com:daniel-monsalve-villegas/prueba-smart-talent.git",
+  "author": "daniel-monsalve-villegas <danielmonsalve214164@correo.itm.edu.co>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.1.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.2",
+    "nodemon": "^2.0.22"
+  }
+}
