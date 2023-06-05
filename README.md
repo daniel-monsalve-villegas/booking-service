@@ -98,13 +98,13 @@ Dado que yo como viajero seleccione mi habitación de preferencia, entonces:
 
 Los datos de cada pasajero deben ser:
 
-- [ ] Nombres y apellidos
-- [ ] Fecha de nacimiento
-- [ ] Género
-- [ ] Tipo de documento
-- [ ] Número de documento
-- [ ] Email
-- [ ] Teléfono de contacto
+- [x] Nombres y apellidos
+- [x] Fecha de nacimiento
+- [x] Género
+- [x] Tipo de documento
+- [x] Número de documento
+- [x] Email
+- [x] Teléfono de contacto
 
 La reserva deberá asociar un contacto de emergencia, el cual debe contener:
 
@@ -113,5 +113,5 @@ La reserva deberá asociar un contacto de emergencia, el cual debe contener:
 
 #### Plus
 
-- [ ] Desarrollo de servicios web
+- [x] Desarrollo de servicios web
 - [ ] Utilice estrategias de CI/CD
