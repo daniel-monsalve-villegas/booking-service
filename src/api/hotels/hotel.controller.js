@@ -24,8 +24,8 @@ export const handleGetHotel = async (req, res) => {
       return res.status(404).json({ message: 'Hotel not found' })
     }
     return res.status(200).json(hotel)
-  } catch (err) {
-    return res.status(500).json(err)
+  } catch (error) {
+    return res.status(500).json(error)
   }
 }
 
@@ -43,12 +43,16 @@ export const handleUpdateHotel = async (req, res) => {
   const { id } = req.params
   const data = req.body
 
-  const hotel = await updateHotel(id, data)
+  try {
+    const hotel = await updateHotel(id, data)
 
-  if (!hotel) {
-    return res.status(404).json({ message: 'Hotel not found' })
+    if (!hotel) {
+      return res.status(404).json({ message: 'Hotel not found' })
+    }
+    return res.status(200).json(hotel)
+  } catch (error) {
+    return res.status(500).json(error)
   }
-  return res.status(200).json(user)
 }
 
 export const handleDeleteHotel = async (req, res) => {
@@ -57,7 +61,7 @@ export const handleDeleteHotel = async (req, res) => {
   try {
     deleteHotel(id)
     return res.status(200).json({ message: 'Hotel deleted' })
-  } catch (err) {
-    return res.status(500).json(err.message)
+  } catch (error) {
+    return res.status(500).json(error.message)
   }
 }
