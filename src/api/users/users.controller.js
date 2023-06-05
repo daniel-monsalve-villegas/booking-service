@@ -5,9 +5,8 @@ import {
   getUsers,
   updateUser,
 } from './users.services.js'
-import jwt from 'jsonwebtoken'
 
-export const handleListUsers = async (req, res) => {
+export const handleGetUsers = async (req, res) => {
   try {
     const users = await getUsers()
     return res.status(200).json(users)
@@ -16,7 +15,7 @@ export const handleListUsers = async (req, res) => {
   }
 }
 
-export const handleLoadUser = async (req, res) => {
+export const handleGetUser = async (req, res) => {
   const { id } = req.params
   try {
     const user = await getUserById(id)
@@ -52,12 +51,7 @@ export const handleUpdateUser = async (req, res) => {
 
 export const handleDeleteUser = async (req, res) => {
   const { id } = req.params
-  const token = req.headers?.authorization?.split(' ')[1]
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized' })
-  }
   try {
-    const decoded = jwt.verify(token, 'SMART_TALENT')
     await deleteUser(id)
     return res.status(200).json({ message: 'User deleted' })
   } catch (error) {

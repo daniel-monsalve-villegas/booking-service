@@ -2,21 +2,32 @@ import { Router } from 'express'
 import {
   handleCreateUser,
   handleDeleteUser,
-  handleListUsers,
-  handleLoadUser,
+  handleGetUser,
+  handleGetUsers,
   handleUpdateUser,
 } from './users.controller.js'
+import { hasRole, isAuthenticated } from '../../auth/auth.services.js'
 
 const router = Router()
 
-router.get('/', handleListUsers)
+router.get('/', isAuthenticated, hasRole(['ADMIN']), handleGetUsers)
 
-router.get('/:id', handleLoadUser)
+router.get('/:id', isAuthenticated, hasRole(['ADMIN', 'USER']), handleGetUser)
 
 router.post('/', handleCreateUser)
 
-router.patch('/:id', handleUpdateUser)
+router.patch(
+  '/:id',
+  isAuthenticated,
+  hasRole(['ADMIN', 'USER']),
+  handleUpdateUser
+)
 
-router.delete('/:id', handleDeleteUser)
+router.delete(
+  '/:id',
+  isAuthenticated,
+  hasRole(['USER', 'ADMIN']),
+  handleDeleteUser
+)
 
 export default router

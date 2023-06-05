@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken'
 import { getUser } from '../api/users/users.services.js'
+import { signToken } from './auth.services.js'
 
 export const handleLoginUser = async (req, res) => {
   const { email, password } = req.body
@@ -12,10 +12,7 @@ export const handleLoginUser = async (req, res) => {
     if (!validPassword) {
       return res.status(401).json({ message: 'Invalid email or password' })
     }
-    const token = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
-      process.env.SECRET_KEY
-    )
+    const token = signToken({ user })
     return res
       .cookie('access_token', token, { httpOnly: true })
       .status(200)

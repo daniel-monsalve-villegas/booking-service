@@ -5,20 +5,21 @@ const UserSchema = mongoose.Schema(
   {
     username: {
       type: String,
-      required: [true, 'Hotel name is required'],
+      required: [true, 'Username name is required'],
       unique: true,
     },
     email: {
       type: String,
-      required: [true, 'Type of place is required'],
+      required: [true, 'Email of place is required'],
     },
     password: {
       type: String,
-      required: [true, 'City is required'],
+      required: [true, 'Password is required'],
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
+    role: {
+      type: String,
+      enum: ['ADMIN', 'USER'],
+      default: 'USER',
     },
   },
   {

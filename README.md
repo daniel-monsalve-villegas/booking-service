@@ -1,5 +1,48 @@
 # prueba-smarttalent
 
+
+### Backend Developing
+
+### Authentication user `/auth/login`
+
+Request Body
+
+```json
+{
+    "email": "test@email.com",
+    "password": "123456"
+}
+```
+
+Response:
+
+```json
+{
+    "user": {
+        "_id": "647d3d6775ce03928a06aaac",
+        "username": "rober",
+        "email": "test@correo.com",
+        "password": "$2a$10$7FqpfikmTJCZExLI1dY/JeOFJZyBv8lTAgAKDFqA2xN/t7ipn1Hoq",
+        "isAdmin": false,
+        "createdAt": "2023-06-05T01:41:59.500Z",
+        "updatedAt": "2023-06-05T01:41:59.500Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2QzZDY3NzVjZTAzOTI4YTA2YWFhYyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2ODU5MjkzMzF9.rgobNyPEPB5_SbqWf8nydbjLJtUm-n3y5TfOy7J6N3o"
+}
+```
+
+1. Run `npm install` to install server dependencies.
+
+2. Configure the env
+
+```shell
+$ cp .env.example .env
+```
+
+3. Upate `.env` with the required info
+
+4. Run `npm run dev` to start the development server
+
 - La prueba debe ser entregada, desplegada y usable.
 - Se debe entregar el código fuente por medio del repositorio de su preferencia.
 - Podrá realizar mocks de servicios web para la interacción con datos.

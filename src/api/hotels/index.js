@@ -6,6 +6,7 @@ import {
   handleGetHotels,
   handleUpdateHotel,
 } from './hotel.controller.js'
+import { hasRole, isAuthenticated } from '../../auth/auth.services.js'
 
 const router = Router()
 
@@ -13,10 +14,10 @@ router.get('/', handleGetHotels)
 
 router.get('/:id', handleGetHotel)
 
-router.post('/', handleCreateHotel)
+router.post('/', isAuthenticated, hasRole(['ADMIN']), handleCreateHotel)
 
-router.patch('/:id', handleUpdateHotel)
+router.patch('/:id', isAuthenticated, hasRole(['ADMIN']), handleUpdateHotel)
 
-router.delete('/:id', handleDeleteHotel)
+router.delete('/:id', isAuthenticated, hasRole(['ADMIN']), handleDeleteHotel)
 
 export default router
